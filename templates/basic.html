@@ -1,0 +1,55 @@
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<header>
+<title>Measurement Page</title>
+<link rel="stylesheet" href="measure.css">
+<script>
+  let text;
+    var person = prompt("Please enter your Measurement name:");
+    // if (person == null || person == "") {
+    //   text = "User cancelled the prompt.";
+    // } else {
+    //   text = "Hello " + person + "! How are you today?";
+    // }
+    // document.getElementById("demo").innerHTML = text;
+    if (person.length!= 0)
+    {
+      document.write("<h1>" + person + "</h1>");
+      document.getElementById("person")
+    }
+</script>
+</header>
+<body>
+<h1 align="center"><em>Measurement</em></h1>
+<br>
+<form method = "post" action = "Measurements/">
+    {% csrf_token %}
+  <!-- <label for="Mname" class="space set"><b>Measurement Name :</b></label>
+  <input type="text" id="Mname" name="Mname" placeholder="Enter File name"required/>
+  <br /> -->
+  <label for="Dname" class="space set"><b>Device Selection :</b></label>
+  <input type="text" id="Dname" name="Dname" required/><br />
+  <input type="radio" id="source" name="option" value="Source">
+  <label for="source">Source</label>
+<input type="radio" id="measurement" name="option" value="Measurement">
+  <label for="measurement">Measurement</label>
+<br>
+<br /><br/>
+<h2>Details</h2>
+</br/>
+<label for="start" class="space set"><b>Start :</b></label>
+<input type="text" id="start" name="start" placeholder="Min Limit -20V" required/>
+<label for="stop" class="space set"><b>Stop :</b></label>
+<input type="text" id="stop" name="stop" placeholder="Max Limit 20V" required/>
+<label for="size" class="space set"><b>Step Size :</b></label>
+<input type="text" id="size" name="size" required/><br />
+<input type="submit" class="button" value="Run">
+<input type="reset" class="button3" value="Reset"><br /><br />
+<input type="button" class="button1" value="Show graph">
+<input type="button" class ="button2" value="Download CSV">
+</body>
+</html>
+{% endblock %}

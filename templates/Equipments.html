@@ -1,0 +1,155 @@
+{% extends 'home.html' %}
+{% block title %}Equipments{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Equipment and Measurement</title>
+  <link href="../css/bootstrap.css" rel="stylesheet" />
+  
+  <script src="../js/jquery-1.11.0.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>Measurement and Equipments</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <table id="productTable" 
+               class="table table-bordered table-condensed table-striped">
+          <thead>
+            <tr>
+              <th>Measurement</th>
+              <th>Date</th>
+              <th>Equipment</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            CREATE YOUR OWN MEASUREMENT
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <label for="Measurement">
+                Measurement Name
+              </label>
+              <input type="text"
+                     class="form-control"
+                     value=""
+                     id="productname" />
+            </div>
+            <div class="form-group">
+              <label for="introdate">
+                Measurement Date
+              </label>
+              <input type="date"
+                     class="form-control"
+                     value=""
+                     id="introdate" />
+            </div>
+            <div class="form-group">
+              <label for="Equipment">
+                Equipment
+              </label>
+              <input type="text"
+                     class="form-control"
+                     value=""
+                     id="url" />
+            </div>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-xs-12">
+                <button type="button" id="updateButton"
+                        class="btn btn-primary"
+                        onclick="productUpdate();">
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Add products to <table>
+      function productAdd() {
+      // First check if a <tbody> tag exists, add one if not
+      if ($("#productTable tbody").length == 0) {
+        $("#productTable").append("<tbody></tbody>");
+      }
+
+      // Append product to the table
+      $("#productTable tbody").append(
+          "<tr>" +
+            "<td>I-V CHARACTERSTICS</td>" +
+            "<td>6/11/2015</td>" +
+            "<td>SMU</td>" +
+          "</tr>"
+          );
+      $("#productTable tbody").append(
+          "<tr>" +
+            "<td>C-V</td>" +
+            "<td>1/29/2015</td>" +
+            "<td>SMU AND DMM</td>" +
+          "</tr>"
+          );
+    }
+
+    // When the document is loaded, add products to <table>
+    $(document).ready(function () {
+      productAdd();
+    });
+    function productUpdate() {
+      if ($("#productname").val() != null &&
+          $("#productname").val() != '') {
+        // Add product to Table
+        productAddToTable();
+
+        // Clear form fields
+        formClear();
+
+        // Focus to product name field
+        $("#productname").focus();
+      }
+    }
+
+    // Add product to <table>
+    function productAddToTable() {
+      // First check if a <tbody> tag exists, add one if not
+      if ($("#productTable tbody").length == 0) {
+        $("#productTable").append("<tbody></tbody>");
+      }
+
+      // Append product to the table
+      $("#productTable tbody").append(
+          "<tr>" +
+            "<td>" + $("#productname").val() + "</td>" +
+            "<td>" + $("#introdate").val() + "</td>" +
+            "<td>" + $("#url").val() + "</td>" +
+          "</tr>"
+          );
+    }
+
+    // Clear form fields
+    function formClear() {
+      $("#productname").val("");
+      $("#introdate").val("");
+      $("#url").val("");
+    }
+  </script>
+</body>
+</html>
+{% endblock %}

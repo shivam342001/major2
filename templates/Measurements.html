@@ -1,0 +1,85 @@
+{% comment %} {% extends 'home.html' %}
+{% block title %}Equipments{% endblock %}
+
+{% block content %} {% endcomment %}
+
+{% comment %} <form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input name="file" accept=".csv" type="file" id="csv" />
+  <button type="submit">upload</button>
+</form>
+<table class="table">
+  <tbody>
+    {% for i in header %}
+    <tr>
+      <th scope="row">{{ i }}</th>
+      {% for j in data|kya_kare_bhai:i %}
+      <td>{{j}}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+
+</table> {% endcomment %}
+{% comment %} <!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+
+<h2>Measurements and Equipments</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>MEASUREMENTS </th>
+    <th>EQUIPMENT</th>
+    
+  </tr>
+  <tr>
+    <td>I-V</td>
+    <td>SMU</td>
+    
+    
+  </tr>
+  <tr>
+    <td>C-V</td>
+    <td>SMU and DMM</td>
+    
+  </tr>
+  <tr>
+    <td>Transient</td>
+    <td>SMU and DMM(optional)</td>
+    
+  </tr>
+</table>
+
+<p>Add your measurement with the equipment</p>
+
+</table>
+
+</body>
+</html> {% endcomment %}
+{% comment %} {% endblock %} {% endcomment %}
+{% comment %} {% extends 'home.html' %} {% endcomment %}
+
+{% block title %}Equipments{% endblock %}
+
+{% block content %}
+<form>
+<label for="start" class="space set"><b>Start :</b></label>
+<input type="text" id="start" name="start" placeholder="Min Limit -20V" required/>
+<label for="stop" class="space set"><b>Stop :</b></label>
+<input type="text" id="stop" name="stop" placeholder="Max Limit 20V" required/>
+<label for="size" class="space set"><b>Step Size :</b></label>
+<input type="text" id="size" name="size" required/><br />
+<input type="submit" class="button" value="Run">
+<input type="reset" class="button3" value="Reset"><br /><br />
+<input type="button" class="button1" value="Show graph">
+<input type="button" class ="button2" value="Download CSV">
+</form>
+</body>
+</html>
+{% endblock %}

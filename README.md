@@ -1,1 +1,2 @@
-# major2
+# django-project
+major

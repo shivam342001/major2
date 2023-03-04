@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+
+<h2>Measurements and Equipments</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>MEASUREMENTS </th>
+    <th>EQUIPMENT</th>
+    
+  </tr>
+  <tr>
+    <td>I-V</td>
+    <td>SMU</td>
+    
+    
+  </tr>
+  <tr>
+    <td>C-V</td>
+    <td>SMU and DMM</td>
+    
+  </tr>
+  <tr>
+    <td>Transient</td>
+    <td>SMU and DMM(optional)</td>
+    
+  </tr>
+</table>
+
+<p>Add your measurement with the equipment</p>
+
+</table>
+
+</body>
+</html>
+

@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Collapsible wrapper -->
+      <div class="btn-group">
+        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Shivam Aggarwal
+        </button>
+        
+        <div class="dropdown-menu">
+          <button type="button" class="btn btn-link px-3 mr-1 text-theme">
+            <a href="{% url 'logout' %}">Log Out</a>
+        </button>
+          <a class="dropdown-item" href="/Account_Settings">Account Settings</a>
+        </div>
+      </div>
+        <!-- Left links -->
+        <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/Equipments">Equipments</a>
+          </li>
+          <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+          {% comment %} <li class="nav-link" button onclick="myFunction()">Measurement1 </button>
+            <li class="nav-item"> {% endcomment %}
+            {% comment %} <li class="nav-link" button onclick="myFunction()">Measurement1 </button> {% endcomment %}
+                <li class="nav-item">
+                  <a class="nav-link" href="/Measurements">Measurements</a>
+          </li>
+        </ul>
+        {% comment %} <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <!-- Left links -->
+      </div> {% endcomment %}
+      <!-- Collapsible wrapper -->
+
+      <!-- Right elements -->
+      {% comment %} <div class="d-flex align-items-center">
+        {% if user.is_authenticated %}
+       
+        {% else %}
+        <button type="button" class="btn btn-link px-3 me-2 text-theme">
+            <a href="{% url 'login' %}">Log In</a>
+        </button>
+        <button type="button" class="btn btn-link px-3 me-2 text-theme">
+          <a href="{% url 'signup' %}">Sign up for free</a>
+        </button>
+        {% endif %} {% endcomment %}
+
+
+      </div>
+      <!-- Right elements -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+ <br>
+{% if user.is_authenticated %}
+<div class="card text-center">
+  <div class="card-header">
+    Get Ready to Explore Our major Project.
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>Welcome on board {{ user.get_full_name }}! </p>
+      <footer class="blockquote-footer">You are successfully logged in</footer>
+    </blockquote>
+  </div>
+</div>
+{% else %}
+<div class="card text-center">
+  <div class="card-header">
+    Welcome
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>You are  logged in</p>
+
+    </blockquote>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
